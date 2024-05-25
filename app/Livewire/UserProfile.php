@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use App\Models\Follow;
+use App\Models\Post;
 use App\Models\Notification;
 
 class UserProfile extends Component
@@ -14,6 +15,7 @@ class UserProfile extends Component
     public $notif;
     public $followersCount;
     public $followingCount;
+    public $posts;
     
     public function mount($pengguna)
     {
@@ -27,6 +29,7 @@ class UserProfile extends Component
         $id = $this->pengguna->id;
         
         $this->user = User::find($id);
+        $this->posts = Post::where('user_id', $id)->get();
         
         $this->followingCount = Follow::where('from_user_id', auth()->user()->id)->count();
         

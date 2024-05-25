@@ -9,7 +9,7 @@
                 </div>
         
                 <div class="ml-3">
-                    <div class="font-medium text-sky-800">{{$comment->user->username ?? 'akun pengguna'}}</div>
+                    <a href="/user/{{$comment->user->username}}" class="font-medium text-sky-800">{{$comment->user->username ?? 'akun pengguna'}}</a>
                     <div class="text-gray-600">{{$comment->user->created_at->diffForHumans() ?? 'no comment'}}</div>
                     <div class="mt-2 text-sky-800">{{$comment->body ?? ''}}
                     </div>
